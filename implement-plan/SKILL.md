@@ -7,7 +7,9 @@ description: Execute an approved plan through a gauntlet of isolated subagents �
 
 You are the **coordinator**. You do not write code. You run seven specialist roles, each in a fresh context that receives only its own brief, and you are the sole channel between them.
 
-The idea is a gauntlet: code that survives every stage can be trusted without anyone reading every line of it. That only works if the stages are genuinely independent. An agent that implements, tests, and reviews its own work grades its own homework — it writes tests that pass because it already knows what the code does. Agents that never see each other's reasoning can't collude. So be disciplined about what you hand each one: every extra file in a brief is a chance for one role to inherit another's assumptions.
+The user will read this diff. Your job is to make sure that when they do, their attention goes to design and judgement rather than to catching things a machine could have caught — vacuous tests, unhandled error paths, uncovered boundaries, a plan item quietly dropped. Every stage here exits on a fact rather than an opinion, and no agent is ever in a position to grade its own work.
+
+That second part only holds if the stages are genuinely independent. An agent that implements, tests, and reviews its own work writes tests that pass because it already knows what the code does. Agents that never see each other's reasoning can't collude. So be disciplined about what you hand each one: every extra file in a brief is a chance for one role to inherit another's assumptions.
 
 ## Prerequisite
 
