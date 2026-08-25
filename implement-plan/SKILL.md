@@ -37,7 +37,7 @@ Prompts live in `roles/`. Read one at a time, as you dispatch it.
 | Cleaner | `roles/cleaner.md` | ❌ | Diff + test diff | The plan, round history |
 | Hardener | `roles/hardener.md` | ✅ (temporarily) | Diff + tests + how to run the suite | The plan, cleaner findings |
 | QA | `roles/qa.md` | ✅ script only | QA procedure + how to run the system | The plan, the diff, all source |
-| Plan-verifier | `roles/plan-verifier.md` | ❌ | Plan + criteria + diff + file tree | Test internals, cleaner findings |
+| Plan-verifier | `roles/plan-verifier.md` | ❌ | Pass 1: plan + criteria. Pass 2: adds diff + file tree | Test internals, cleaner findings |
 
 Three of these will feel wrong and are load-bearing:
 
@@ -57,11 +57,20 @@ Dispatch the specifier over the plan. It produces **acceptance criteria** (concr
 
 This runs before any code exists so nothing can drift toward what was built. If the specifier reports the plan is too vague to make concrete, that's the cheapest possible moment to find out — surface it and use your judgement.
 
-### 2. Build in parallel
+### 2. Verify the criteria against the plan
+
+Dispatch the plan-verifier's **first pass** over the plan and criteria. After this point nothing downstream reads the plan again, so a plan item the specifier dropped would sail through the whole gauntlet unnoticed.
+
+Act on it now, while amending frozen artifacts is still free:
+- **dropped** or **partial** → amend the criteria and record it under *criteria changed mid-run*.
+- **untestable** → carry forward; the second pass looks for these in the diff.
+- **invented scope** → cut it.
+
+### 3. Build in parallel
 
 Dispatch the implementer and test-writer **at the same time**, both from the plan and criteria, neither aware of the other. They will disagree about interfaces — that's the point.
 
-### 3. Green gate
+### 4. Green gate
 
 Run the suite, plus linter and typechecker if already configured. Red never reaches the cleaner.
 
@@ -69,7 +78,7 @@ Run the suite, plus linter and typechecker if already configured. Red never reac
 - Plan or criteria specify the interface → whoever deviated fixes it.
 - Both are silent → **the implementation is authoritative.** Send the test-writer the public surface — signatures only — to re-align. Tests shouldn't dictate design nobody agreed to.
 
-### 4. Cleaner
+### 5. Cleaner
 
 Dispatch a **fresh** cleaner over the diff and test diff. Fresh every round: isolation is the priority and you are the memory. It classifies each finding:
 
@@ -78,7 +87,7 @@ Dispatch a **fresh** cleaner over the diff and test diff. Fresh every round: iso
 
 Route fixes as a new brief containing only the finding. The cleaner never fixes what it finds — that keeps it honest and stops two agents editing the same files at once.
 
-### 5. Hardener
+### 6. Hardener
 
 Runs **strictly alone** — builds and simulators don't share well, and a half-mutated tree read by anything else produces garbage.
 
@@ -88,13 +97,13 @@ It reports every surviving mutant, including trivial-looking ones, and argues it
 
 Route the rest: weak tests → test-writer; dead or unreachable code → implementer. A survivor you rule not worth a test goes in the ledger **with the hardener's argument for it**, so what got waved off stays visible.
 
-### 6. Loop
+### 7. Loop
 
 Return to the green gate. Exit when, in the same round, **the cleaner returns zero blockers and defects, and every survivor is killed, equivalent, or accepted by you**.
 
 **Termination guard:** when the same unresolved finding appears a third time, rule it won't-fix, record it with what was attempted, and carry on. Keeps the run autonomous while still guaranteeing it ends — and the ruling lands in the report with its history, so the user can overrule you.
 
-### 7. QA
+### 8. QA
 
 Once the loop is clean, dispatch the QA agent against the **real running system** with the frozen QA procedure. Skip only if the host genuinely cannot run the system — and say so in the report, because a visibly skipped check is fine while a silently absent one is not.
 
@@ -102,11 +111,13 @@ Prefer the executable route (it re-runs identically); fall back to driving the a
 
 A QA failure re-opens the loop: fix, then green gate → cleaner → hardener again before re-running QA. That's expensive, which is exactly why QA runs late.
 
-### 8. Plan-verifier
+### 9. Verify the change against the plan
 
-Dispatch over the plan, criteria, diff, and file tree. Relay each gap to the implementer, which answers *"missed it"* (re-enters the loop) or *"deliberate, because X"* (record the justification).
+Dispatch the plan-verifier's **second pass** over the plan, criteria, diff, and file tree. Behavioural correctness is already settled by tests and QA; this pass exists for the two things nothing else can see — non-behavioural plan items and unaccounted scope.
 
-### 9. Clean up
+Relay each gap to the implementer, which answers *"missed it"* (re-enters the loop) or *"deliberate, because X"* (record the justification).
+
+### 10. Clean up
 
 Delete the ledger file.
 

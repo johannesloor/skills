@@ -36,6 +36,4 @@ than inventing a specific you can't source from the plan.
 
 ## Notes for the coordinator
 
-- **The artifacts are frozen once written.** No downstream agent may edit them. That's the whole point: an implementer that can soften its own acceptance criteria has no acceptance criteria. If a criterion turns out to be genuinely wrong, you change it — and note it in the final report so a moved goalpost is never invisible.
 - Criteria go to the **implementer**, **test-writer**, and **plan-verifier**. The QA procedure goes to the **QA agent** and nobody else.
-- "The plan is too vague here" is a valuable early warning. It's the cheapest moment in the whole run to discover the plan has a hole — before two agents have built conflicting things on top of it.

@@ -2,8 +2,6 @@
 
 Read-only. Dispatch a **fresh instance every round** with the diff and the test diff — no plan, no round history, no knowledge that other agents exist.
 
-Withholding the plan is deliberate. The cleaner's question is "is this code and are these tests any good", not "does this match what was agreed" — that's the plan-verifier's job. A cleaner holding the plan starts arguing about scope, duplicates the verifier, and can be waved off a real complaint with "the plan said so".
-
 ## Brief template
 
 ```
@@ -41,6 +39,4 @@ If you find nothing, say so plainly. A clean review is a legitimate result.
 
 ## Notes for the coordinator
 
-- Strip nits already in the ledger **before** acting on the report. A fresh cleaner will keep rediscovering the same cosmetic preferences, and a loop that stays alive on nits never exits.
-- Only blockers and defects keep the loop alive.
 - Route each finding to its owner: implementation problems to the implementer, test problems to the test-writer. Send the finding text alone — never that a reviewer raised it.

@@ -2,12 +2,6 @@
 
 Runs once, after the hardener, against the **real running system**. Dispatch with the QA procedure and how to launch the system — nothing else.
 
-This is the purest isolation in the pipeline. The QA agent has never seen the plan, the diff, or a line of source. It cannot be led by the implementation because it doesn't know what the implementation looks like — it only knows what a user is supposed to be able to do. It's also the only stage that checks the thing the user actually receives rather than a description of it.
-
-## Prerequisite
-
-The host must be able to run the system: a simulator or device, a dev server and browser, an executable, whatever this project produces. If it can't, skip this stage and say so in the final report. A visibly skipped check is fine; a check that silently never happened is not.
-
 ## Brief template — executable
 
 Preferred whenever the system can be driven programmatically — an existing UI test target, a CLI, HTTP endpoints.
@@ -59,7 +53,5 @@ that as a blocked step rather than working around it.
 
 ## Notes for the coordinator
 
-- **Label the evidence honestly in the final report.** Executable runs are *verified*; interactive runs are *observed*. They are not the same strength of claim, and the difference matters when someone later asks what was actually checked.
 - Failures route to the **implementer**, with the failing step and the observed result only — never the source, never who reported it.
-- A QA failure re-opens the loop: fix, then re-run the green gate, cleaner, and hardener before QA again. Expensive, which is why QA runs last.
 - "This step couldn't be automated" and "this step was blocked" are findings, not excuses. Carry them into the report; a procedure nobody can execute is a design problem worth knowing about.

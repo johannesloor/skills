@@ -2,8 +2,6 @@
 
 Dispatch with the plan and repo access. **Never include implementation bodies.** On a collision, and only then, include the implementation's public signatures — no bodies, no comments, no internals.
 
-The reason is worth holding onto: tests written by reading the implementation describe what the code does, bugs included, and they pass on day one because they were reverse-engineered from the thing they're supposed to be checking. Tests written from the plan describe what the code was supposed to do. Only the second kind can fail usefully.
-
 ## Brief template — first dispatch
 
 ```

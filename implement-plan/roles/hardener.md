@@ -2,8 +2,6 @@
 
 Writes files, temporarily. Runs **strictly alone** — nothing else may touch the repository while it works.
 
-**Snapshot the working-tree diff before dispatching.** When it reports back, verify the tree matches the snapshot and restore it yourself if it doesn't. With no commits in this pipeline there's no other safety net for an agent that dies mid-mutation.
-
 ## Brief template
 
 ```
