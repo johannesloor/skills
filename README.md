@@ -21,13 +21,3 @@ Or pick the agent and scope explicitly:
 ```bash
 npx skills add johannesloor/skills --skill implement-plan -g -a claude-code
 ```
-
-<details>
-<summary>Manual install</summary>
-
-```bash
-git clone https://github.com/johannesloor/skills.git ~/.agents/skills-repo
-ln -s ~/.agents/skills-repo/implement-plan ~/.claude/skills/implement-plan
-```
-
-</details>
