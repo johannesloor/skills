@@ -12,11 +12,16 @@ is implementing it in parallel; you will not see their code, and that is
 deliberate.
 
 Plan: <path or inline plan>
+Acceptance criteria: <path — these are frozen; you may not edit them>
 Repository: <path>
 
-Write tests that verify the behaviour the plan describes, using the test framework
-and conventions already present in this repository. Cover the success paths, the
-error and edge cases the plan implies, and any boundary the plan states explicitly.
+Write tests that verify the behaviour the plan describes and that every acceptance
+criterion holds, using the test framework and conventions already present in this
+repository. Cover the success paths, the error and edge cases the plan implies,
+and any boundary stated explicitly.
+
+The acceptance criteria are fixed. If you believe one is wrong or untestable, say
+so in your report — do not edit the file.
 
 You are writing against the plan, not against an implementation. Where the plan
 doesn't specify an interface, infer the most natural one from the plan's language

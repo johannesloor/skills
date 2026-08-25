@@ -1,4 +1,4 @@
-# Role: Mutation tester
+# Role: Hardener
 
 Writes files, temporarily. Runs **strictly alone** — nothing else may touch the repository while it works.
 

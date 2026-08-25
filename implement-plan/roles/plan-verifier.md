@@ -1,6 +1,6 @@
 # Role: Plan-verifier
 
-Read-only. Dispatch once, after the critic/mutation loop is clean, with the plan, the diff, and the file tree. No test internals, no critic findings, no round history — its only question is whether what was agreed is what got built.
+Read-only. Dispatch once, after the loop is clean and QA has run, with the plan, the diff, and the file tree. No test internals, no cleaner findings, no round history — its only question is whether what was agreed is what got built.
 
 ## Brief template
 
@@ -11,13 +11,17 @@ completeness and fidelity, not code quality — that has already been reviewed.
 Plan:
 <plan>
 
+Acceptance criteria:
+<criteria>
+
 Diff:
 <diff>
 
 File tree:
 <tree>
 
-Go through the plan item by item. For each one, decide whether it is:
+Go through the plan item by item, and the acceptance criteria one by one. For each,
+decide whether it is:
 
   implemented   — present and matching what the plan describes
   partial       — started but incomplete, or narrower than the plan specified

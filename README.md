@@ -4,9 +4,11 @@ Agent skills.
 
 ## implement-plan
 
-Executes an approved plan through a pipeline of isolated subagents — implementer, test-writer, critic, mutation tester, and plan-verifier — each seeing only what its own job requires, all communicating through a coordinator.
+Executes an approved plan through a gauntlet of isolated subagents — specifier, implementer, test-writer, cleaner, hardener, QA, and plan-verifier — each seeing only what its own job requires, all communicating through a coordinator.
 
-The point is that no agent grades its own homework: the test-writer never sees the implementation, and the critic never sees the plan.
+The point is that no agent grades its own homework. The specifier freezes acceptance criteria before any code exists, the test-writer never sees the implementation, the cleaner never sees the plan, and the QA agent never sees any source at all.
+
+Inspired by Robert C. Martin's agent pipeline, discussed with Matt Pocock.
 
 ### Install
 
