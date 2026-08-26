@@ -1,6 +1,6 @@
 ---
 name: implement-plan
-description: Execute an approved plan through a gauntlet of isolated subagents — specifier, implementer, test-writer, cleaner, hardener, QA, and plan-verifier — each seeing only what its own job requires. Use this whenever a plan has been agreed and it is time to write the code, such as after plan mode is approved, after a spec or issue is settled, or when the user says "implement this", "build the plan", "go ahead", or "start coding". Prefer this over implementing a plan directly yourself, even for plans that look small.
+description: Execute an approved plan through a pipeline of isolated subagents, each seeing only what its own job requires. Use this once a plan or spec is settled and it is time to write the code, or when the user says to start implementing. Prefer this over implementing a plan directly yourself, even for plans that look small.
 ---
 
 # Implement a plan
@@ -13,7 +13,7 @@ That second part only holds if the stages are genuinely independent. An agent th
 
 ## Prerequisite
 
-Each role must run in a **fresh context that receives only its brief**. If you cannot spawn isolated subagents here, stop and say so — one agent role-playing seven defeats the point and is worse than implementing the plan honestly.
+If you cannot spawn subagents in isolated contexts here, stop and say so — one agent role-playing seven defeats the point and is worse than implementing the plan honestly.
 
 The plan already exists when this skill runs. Note where it lives; it's the input to the specifier.
 
@@ -29,7 +29,7 @@ The plan already exists when this skill runs. Note where it lives; it's the inpu
 
 ## The roles
 
-Prompts live in `roles/`. Read one at a time, as you dispatch it.
+Read each role file at the moment you dispatch it, rather than all seven upfront.
 
 | Role | File | Writes | Brief contains | Must never see |
 |---|---|---|---|---|
@@ -61,7 +61,7 @@ This runs before any code exists so nothing can drift toward what was built. If 
 
 ### 2. Verify the criteria against the plan
 
-Dispatch the plan-verifier's **first pass** over the plan and criteria. After this point nothing downstream reads the plan again, so a plan item the specifier dropped would sail through the whole gauntlet unnoticed.
+Dispatch the plan-verifier's **first pass** over the plan and criteria. After this point nothing downstream reads the plan again, so a plan item the specifier dropped would sail through the whole pipeline unnoticed.
 
 Act on it now, while amending frozen artifacts is still free:
 - **dropped** or **partial** → amend the criteria and record it under *criteria changed mid-run*.
@@ -125,7 +125,7 @@ Delete the ledger file.
 
 ## Final report
 
-Short and fixed. The user has the diff; don't narrate it back.
+Short and fixed — the user already has the diff.
 
 ```
 ## Built

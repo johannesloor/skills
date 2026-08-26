@@ -2,8 +2,6 @@
 
 Read-only. Dispatched **twice**, with different briefs.
 
-Once the specifier has run, no other agent reads the plan again — everything downstream works from derived artifacts. If the specifier quietly dropped a plan item, the whole gauntlet goes green on an incomplete spec and nothing notices. This role is the only thing standing between you and that.
-
 ## Pass 1 — plan against criteria
 
 Runs immediately after the specifier, before any code exists.
