@@ -27,8 +27,11 @@ Method:
 4. Confirm at the end that every mutant is reverted and the tree is exactly as
    you found it.
 
-Aim for meaningful coverage of the changed logic rather than a fixed count —
-enough mutants that a surviving one tells you something real.
+Work through the changed logic exhaustively rather than sampling it. Every
+conditional, every boundary comparison, every branch, and every error path the
+diff introduces gets at least one mutant. Enumerate them from the diff before you
+start, then work that list — you are done when the list is empty, not when the
+results start to feel repetitive.
 
 For each SURVIVING mutant report: file, line, the exact change you made, your read
 on why nothing caught it, and the argument for why it matters.

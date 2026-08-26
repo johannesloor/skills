@@ -22,17 +22,15 @@ QA procedure:
 Go through the plan item by item. For each, decide whether the criteria and QA
 procedure capture it:
 
-  captured   — a criterion or QA step would fail if this were not implemented
-  partial    — captured, but more narrowly than the plan describes
-  dropped    — nothing downstream would notice if this were skipped entirely
-  untestable — real work the plan asks for that no criterion could express
+  captured — a criterion or QA step would fail if this were not implemented
+  partial  — captured, but more narrowly than the plan describes
+  named    — listed under non-behavioural work, which is where refactors,
+             deletions, and documentation belong
+  dropped  — neither captured nor named, so nothing downstream would notice if
+             this were skipped entirely
 
 Flag anything in the criteria that the plan does not ask for — invented scope is
 as much a defect here as missing scope, and it's much cheaper to remove now.
-
-"Untestable" is expected for some items, and is not a failure. Refactors, deletions,
-and documentation are real work that acceptance criteria can't express. Naming them
-here is what stops them being forgotten later.
 
 Report your item-by-item findings and nothing else.
 ```

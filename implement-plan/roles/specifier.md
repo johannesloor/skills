@@ -27,6 +27,12 @@ Produce two artifacts.
    someone operating the app or tool, not someone reading the code. Number the
    steps and state the observable outcome of each.
 
+Work through the plan item by item. Every item must end up traceable to at least
+one acceptance criterion, or listed under a NON-BEHAVIOURAL WORK heading in the
+same file — deleting a module, moving a file, updating documentation, changing
+configuration. Those are real work no criterion can express, and naming them is
+what stops them being forgotten. An item that fits neither is one you dropped.
+
 Write both to <path>. Cover what the plan describes and nothing beyond it — you
 are making the plan precise, not extending it.
 

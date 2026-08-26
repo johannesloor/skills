@@ -55,7 +55,7 @@ One pass over the whole plan. If the plan declares phases, treat each phase as i
 
 ### 1. Specify
 
-Dispatch the specifier over the plan. It produces **acceptance criteria** (concrete, checkable behaviour) and a **QA procedure** (how a human would exercise the running system). Both are frozen from this moment.
+Dispatch the specifier over the plan. It produces **acceptance criteria** (concrete, checkable behaviour, plus a list of the non-behavioural work no criterion can express) and a **QA procedure** (how a human would exercise the running system). Both are frozen from this moment.
 
 This runs before any code exists so nothing can drift toward what was built. If the specifier reports the plan is too vague to make concrete, that's the cheapest possible moment to find out — surface it and use your judgement.
 
@@ -65,7 +65,7 @@ Dispatch the plan-verifier's **first pass** over the plan and criteria. After th
 
 Act on it now, while amending frozen artifacts is still free:
 - **dropped** or **partial** → amend the criteria and record it under *criteria changed mid-run*.
-- **untestable** → carry forward; the second pass looks for these in the diff.
+- **named** → the second pass looks for these in the diff.
 - **invented scope** → cut it.
 
 ### 3. Build in parallel
