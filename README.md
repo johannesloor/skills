@@ -12,7 +12,17 @@ And no agent is ever in a position to grade its own work — the specifier freez
 
 Inspired by the agent pipeline Robert C. Martin describes in [his conversation with Matt Pocock](https://www.youtube.com/live/zcLPGC-tvgk) — the specifier, cleaner, and hardener roles are his.
 
-### Install
+## visualize
+
+Puts a plan, an implementation, or both onto a shared canvas — a whiteboard or a design file — for a team to stand in front of and argue with.
+
+Tool-agnostic: you give it a link, it works through whatever MCP server serves that tool, and walks you through setting one up when none is attached. The medium is read from the link itself, because a collaborative whiteboard and a precise design canvas want genuinely different artifacts — one built from pieces people can drag, the other from cards people read.
+
+The discipline that matters is tense. A plan and a result are different artifacts, and a plan drawn with hindsight is the easy mistake to make, because the output still looks correct. So a plan gets drawn as a plan: unknowns stay unknown, every branch stays live, and a gate marks where work stops and waits for a person — whatever the agent happens to know about how it actually went.
+
+Overview beats detail, but nothing silently vanishes: one numbered band per section of the source, compressed within a band rather than dropped. Each board also gets at least one diagram the source could not draw — the bind, the fork, the decision tree that prose spreads across several paragraphs and a picture states at once. Then it checks its own work, querying element bounds for overlaps and clipped text and rendering the board to look at it, until both come back clean.
+
+## Install
 
 ```bash
 npx skills add johannesloor/skills
