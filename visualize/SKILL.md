@@ -1,11 +1,11 @@
 ---
 name: visualize
-description: Draw whatever a team needs to look at together — a plan, a shipped implementation, a roadmap, an architecture — onto a shared canvas. Use when visualising work onto a linked board or design file.
+description: Draw anything a team needs to look at together onto a shared canvas.
 disable-model-invocation: true
 argument-hint: "<where to visualize> [what to visualize]"
 ---
 
-You are building something a team will stand in front of and argue with, and a picture carries that conversation where a paragraph stalls it. Draw the meaning — in shape, position, size and colour — and let words label what you have drawn rather than carry it. Overview and connection points are the job; the fine detail stays in the source document. Once you know which kind of canvas you are drawing on, read [`references/medium-craft.md`](references/medium-craft.md).
+You are building something a team will stand in front of and argue with, and a picture carries that conversation where a paragraph stalls it. Every board is built to be **squinted** at: at a zoom where the words are unreadable, the argument still follows from shape, position, size and colour alone, and words only label what the shapes already carry. Overview and connection points are the job; the fine detail stays in the source document.
 
 ## Settle where and what
 
@@ -29,7 +29,7 @@ Work through whatever MCP server serves the linked tool. When none is attached, 
 
 ## Read the target before drawing
 
-Open the destination and learn what is already there: pages, house palette, spacing habits, the shapes people already reach for. Match them.
+Open the destination and learn what is already there: pages, house palette, spacing habits, the shapes people already reach for. Match them. Now that you know which kind of canvas you are drawing on, read [`references/medium-craft.md`](references/medium-craft.md).
 
 An empty destination gets drawn on directly. A destination holding existing work gets a question first — a new page, or somewhere else.
 
@@ -51,9 +51,9 @@ Mix them freely on one board where the material is mixed — a timeline of phase
 
 Whatever the unit, the guarantee holds: every part of the source lands in one, compression happens inside a unit, and no unit is dropped.
 
-Compress by translating into shape rather than by shortening prose. A paragraph describing three stages and a dependency between two of them is three boxes and an arrow; what survives the translation becomes labels on it. Draw every unit this way wherever the material permits, and keep a prose card for the material that genuinely resists shape. When a unit needs a paragraph to explain itself, it is a diagram you have not found yet — find it, and let the paragraph become its labels.
+Compress by translating into shape. A paragraph describing three stages and a dependency between two of them is three boxes and an arrow; what survives the translation becomes labels on it. Draw every unit this way wherever the material permits, and keep a prose card for the material that genuinely resists shape. When a unit needs a paragraph to explain itself, it is a diagram you have not found yet — find it, and let the paragraph become its labels.
 
-Carry meaning in every channel the canvas offers, not in words alone:
+Squinting works when meaning rides in every channel the canvas offers:
 
 - **size**, for importance or magnitude
 - **position**, for sequence or rank
@@ -86,7 +86,7 @@ When the ask is a plan and its result together, put the plan on the left and the
 
 Build one unit per operation and check it before starting the next.
 
-Checking means three passes. Query the bounds of every element and confirm that nothing overlaps a heading, nothing overlaps a neighbour, and no text has been clipped by its container. Then render the board as an image and look at it, because a structural check passes happily on something ugly. Then squint: at a zoom where the words are unreadable, the argument should still follow from shape, position and colour alone. Where it does not, the board is carrying its meaning in text that ought to be carrying it in form.
+Checking means three passes. Query the bounds of every element and confirm that nothing overlaps a heading, nothing overlaps a neighbour, and no text has been clipped by its container. Then render the board as an image and look at it, because a structural check passes happily on something ugly. Then squint. Where the argument does not survive, the board is carrying in text what it ought to be carrying in form.
 
 Repeat until every element passes all three. When a defect resists fixing, name it precisely and hand it back — a named unresolved overlap is worth more than a board reported as finished.
 

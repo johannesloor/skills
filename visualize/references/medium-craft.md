@@ -1,4 +1,4 @@
-Which canvas you are on changes what to build, not only how to build it. Building for one medium and porting it to the other is faster than designing twice and noticeably worse. Read the section for the destination in front of you.
+Which canvas you are on changes what to build, not only how to build it. A board built for one medium and ported to the other lands noticeably worse, so read the section for the destination in front of you.
 
 ## A precise design canvas
 
