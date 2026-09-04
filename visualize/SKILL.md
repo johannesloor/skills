@@ -5,7 +5,7 @@ disable-model-invocation: true
 argument-hint: "<where to visualize> [plan | implementation | both]"
 ---
 
-You are building something a team will stand in front of and argue with. Overview and connection points carry that conversation; the fine detail stays in the source document. Once you know which kind of canvas you are drawing on, read [`references/medium-craft.md`](references/medium-craft.md).
+You are building something a team will stand in front of and argue with, and a picture carries that conversation where a paragraph stalls it. Draw the meaning — in shape, position, size and colour — and let words label what you have drawn rather than carry it. Overview and connection points are the job; the fine detail stays in the source document. Once you know which kind of canvas you are drawing on, read [`references/medium-craft.md`](references/medium-craft.md).
 
 ## Settle where and what
 
@@ -53,7 +53,20 @@ Break the source into **units**, each with a heading, each visually distinct, nu
 
 Mix them freely on one board where the material is mixed — a timeline of phases above a swimlane of who owns what, beside two bands of open questions. Number every top-level unit in one sequence whatever its type, so the board keeps a reading order that survives someone dragging a piece of it.
 
-Whatever the unit, the guarantee holds: every part of the source lands in one, compression happens inside a unit, and no unit is dropped. Compress as hard as the space demands — a ten-line paragraph becomes a three-line card.
+Whatever the unit, the guarantee holds: every part of the source lands in one, compression happens inside a unit, and no unit is dropped.
+
+Compress by translating into shape rather than by shortening prose. A paragraph describing three stages and a dependency between two of them is three boxes and an arrow; what survives the translation becomes labels on it. Draw every unit this way wherever the material permits, and keep a prose card for the material that genuinely resists shape. When a unit needs a paragraph to explain itself, it is a diagram you have not found yet — find it, and let the paragraph become its labels.
+
+Carry meaning in every channel the canvas offers, not in words alone:
+
+- **size**, for importance or magnitude
+- **position**, for sequence or rank
+- **proximity**, for what belongs with what
+- **connectors**, for dependency and flow
+- **a repeated icon**, for a kind that recurs across the board
+- **colour**, along one axis
+
+Colour is the fastest channel and the easiest to waste, so give it one meaning and hold it across the whole board. For a decision or a diagnosis that means one tone for blocked or rejected, one for kept or succeeded, one for works-but-costs, one for open questions, and one neutral. For material that is not triage-shaped, colour along whatever axis it actually varies on — theme, team, phase, confidence. Either way, give the conclusion a distinct treatment so the eye lands there last, and where the destination already has a house convention, map onto its colours instead.
 
 Draw at least one **derived diagram** — something the prose states across several paragraphs that a picture states at once. This one is not a division of the source but an addition to it, so reach for the shape the argument takes:
 
@@ -71,17 +84,15 @@ Place any images the material already carries — screenshots, diagrams, recordi
 
 Draw unknowns as unknowns. A question with three possible answers looks like a question with three possible answers: an explicit unknown marker, one branch per outcome, and the condition written on each edge. Where a human decision interrupts the flow, draw a gate — it says work stops here and waits for a person better than a sentence does.
 
-Carry a palette where colour means something and keeps meaning it across the whole board. For a decision or a diagnosis that means one tone for blocked or rejected, one for kept or succeeded, one for works-but-costs, one for open questions, and one neutral. For material that is not triage-shaped, colour along whatever axis it actually varies on — theme, team, phase, confidence — one axis, held across the board. Either way, give the conclusion a distinct treatment so the eye lands there last, and where the destination already has a house convention, map onto its colours instead.
-
 For **both**, put the plan on the left and the result on the right, in reading order on one page, named with ordinals so the sequence survives being zoomed out. A connector between them naming the event that turned one into the other earns its place when there is a clean event to name.
 
 ## Verify until it is clean
 
 Build one unit per operation and check it before starting the next.
 
-Checking means both halves. Query the bounds of every element and confirm that nothing overlaps a heading, nothing overlaps a neighbour, and no text has been clipped by its container. Then render the board as an image and look at it, because a structural check passes happily on something ugly.
+Checking means three passes. Query the bounds of every element and confirm that nothing overlaps a heading, nothing overlaps a neighbour, and no text has been clipped by its container. Then render the board as an image and look at it, because a structural check passes happily on something ugly. Then squint: at a zoom where the words are unreadable, the argument should still follow from shape, position and colour alone. Where it does not, the board is carrying its meaning in text that ought to be carrying it in form.
 
-Repeat until every element passes both halves. When a defect resists fixing, name it precisely and hand it back — a named unresolved overlap is worth more than a board reported as finished.
+Repeat until every element passes all three. When a defect resists fixing, name it precisely and hand it back — a named unresolved overlap is worth more than a board reported as finished.
 
 ## Hand over
 
