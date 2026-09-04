@@ -1,3 +1,3 @@
 interface:
   display_name: "Visualize"
-  short_description: "Put a plan or implementation on a shared canvas for a team"
+  short_description: "Draw a plan or implementation onto a shared canvas"

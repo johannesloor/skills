@@ -1,6 +1,6 @@
 ---
 name: visualize
-description: Put a plan, an implementation, or both onto a shared canvas for a team to discuss. Use when visualising work onto a linked board or design file.
+description: Draw a plan, an implementation, or both onto a shared canvas, carrying the meaning in shape, position and colour rather than in paragraphs. Use when visualising work onto a linked board or design file.
 disable-model-invocation: true
 argument-hint: "<where to visualize> [plan | implementation | both]"
 ---
@@ -68,7 +68,7 @@ Carry meaning in every channel the canvas offers, not in words alone:
 
 Colour is the fastest channel and the easiest to waste, so give it one meaning and hold it across the whole board. For a decision or a diagnosis that means one tone for blocked or rejected, one for kept or succeeded, one for works-but-costs, one for open questions, and one neutral. For material that is not triage-shaped, colour along whatever axis it actually varies on — theme, team, phase, confidence. Either way, give the conclusion a distinct treatment so the eye lands there last, and where the destination already has a house convention, map onto its colours instead.
 
-Draw at least one **derived diagram** — something the prose states across several paragraphs that a picture states at once. This one is not a division of the source but an addition to it, so reach for the shape the argument takes:
+Add the diagrams the source could not draw — what prose spreads across several paragraphs, a picture states at once. Draw every one the material earns. These are additions to the source rather than divisions of it, so reach for the shape the argument takes:
 
 - a **bind**, where several routes each dead-end and the point is that they exhaust the options
 - a **decision tree**, branching, with the condition written on each edge
