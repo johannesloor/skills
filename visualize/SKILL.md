@@ -1,8 +1,8 @@
 ---
 name: visualize
-description: Draw a plan, an implementation, or both onto a shared canvas, carrying the meaning in shape, position and colour rather than in paragraphs. Use when visualising work onto a linked board or design file.
+description: Draw whatever a team needs to look at together — a plan, a shipped implementation, a roadmap, an architecture — onto a shared canvas. Use when visualising work onto a linked board or design file.
 disable-model-invocation: true
-argument-hint: "<where to visualize> [plan | implementation | both]"
+argument-hint: "<where to visualize> [what to visualize]"
 ---
 
 You are building something a team will stand in front of and argue with, and a picture carries that conversation where a paragraph stalls it. Draw the meaning — in shape, position, size and colour — and let words label what you have drawn rather than carry it. Overview and connection points are the job; the fine detail stays in the source document. Once you know which kind of canvas you are drawing on, read [`references/medium-craft.md`](references/medium-craft.md).
@@ -11,17 +11,13 @@ You are building something a team will stand in front of and argue with, and a p
 
 Ask for whatever the invocation left out.
 
-**Where** is a link to a board or a design file. **What** is one of three artifacts:
+**Where** is a link to a board or a design file. **What** is whatever the user wants on it — a plan, a shipped implementation, a roadmap, an architecture, a retrospective, a ticket, an idea that exists only in this conversation. Take what they name.
 
-- **plan** — what was proposed, before the work
-- **implementation** — what was built, after it
-- **both** — the pair, on one page
-
-Source material is whatever holds that artifact: a named file, the plan agreed in this session, or a repository you read yourself. Name the source back to the user in one line along with the artifact and its tense, then start work without waiting for a reply.
+Source material is whatever holds it: a named file, something agreed in this session, an issue thread, or a repository you read yourself. Name the source back to the user in one line along with what you take it to be, then start work without waiting for a reply.
 
 ## Hold the tense
 
-A plan is forward-looking and conditional, its unknowns open and every branch live. A result is settled and past, one branch taken and the rest closed. Drawing the wrong one is the most expensive mistake available here, because the output still looks correct.
+This section applies when what you are drawing is a plan or a result, and asking for both means the pair side by side on one page. A plan is forward-looking and conditional, its unknowns open and every branch live. A result is settled and past, one branch taken and the rest closed. Drawing the wrong one is the most expensive mistake available here, because the output still looks correct.
 
 When drawing a plan, treat the implementation as unknown even when it sits in front of you in full. An uncertainty the plan carried stays an uncertainty on the board, every branch drawn, whatever you happen to know about which one fired.
 
@@ -84,7 +80,7 @@ Place any images the material already carries — screenshots, diagrams, recordi
 
 Draw unknowns as unknowns. A question with three possible answers looks like a question with three possible answers: an explicit unknown marker, one branch per outcome, and the condition written on each edge. Where a human decision interrupts the flow, draw a gate — it says work stops here and waits for a person better than a sentence does.
 
-For **both**, put the plan on the left and the result on the right, in reading order on one page, named with ordinals so the sequence survives being zoomed out. A connector between them naming the event that turned one into the other earns its place when there is a clean event to name.
+When the ask is a plan and its result together, put the plan on the left and the result on the right, in reading order on one page, named with ordinals so the sequence survives being zoomed out. A connector between them naming the event that turned one into the other earns its place when there is a clean event to name.
 
 ## Verify until it is clean
 
