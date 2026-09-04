@@ -20,7 +20,7 @@ Tool-agnostic: you give it a link, it works through whatever MCP server serves t
 
 The discipline that matters is tense. A plan and a result are different artifacts, and a plan drawn with hindsight is the easy mistake to make, because the output still looks correct. So a plan gets drawn as a plan: unknowns stay unknown, every branch stays live, and a gate marks where work stops and waits for a person — whatever the agent happens to know about how it actually went.
 
-Overview beats detail, but nothing silently vanishes: one numbered band per section of the source, compressed within a band rather than dropped. Each board also gets at least one diagram the source could not draw — the bind, the fork, the decision tree that prose spreads across several paragraphs and a picture states at once. Then it checks its own work, querying element bounds for overlaps and clipped text and rendering the board to look at it, until both come back clean.
+Overview beats detail, but nothing silently vanishes: the source is broken into numbered units — bands, timelines, swimlanes, journeys, maps, mixed freely as the material demands — compressed within a unit rather than dropped. Each board also gets at least one diagram the source could not draw — the bind, the fork, the story map, the impact matrix that prose spreads across several paragraphs and a picture states at once. Then it checks its own work, querying element bounds for overlaps and clipped text and rendering the board to look at it, until both come back clean.
 
 ## Install
 

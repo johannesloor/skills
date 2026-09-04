@@ -5,7 +5,7 @@ disable-model-invocation: true
 argument-hint: "<where to visualize> [plan | implementation | both]"
 ---
 
-You are building something a team will stand in front of and argue with. Overview and connection points carry that conversation; exact identifiers, reproduction steps and API minutiae stay in the source document. Once you know which kind of canvas you are drawing on, read [`references/medium-craft.md`](references/medium-craft.md).
+You are building something a team will stand in front of and argue with. Overview and connection points carry that conversation; the fine detail stays in the source document. Once you know which kind of canvas you are drawing on, read [`references/medium-craft.md`](references/medium-craft.md).
 
 ## Settle where and what
 
@@ -43,27 +43,41 @@ Element types size themselves differently, often in opposite directions within t
 
 ## Lay out the board
 
-Give the source one **band** per section, each with a heading, each visually distinct, numbered so a room can say "look at 3". Compress inside a band as hard as the space demands: a ten-line paragraph becomes a three-line card. Every band survives; the compression happens within it.
+Break the source into **units**, each with a heading, each visually distinct, numbered so a room can say "look at 3". Take the unit from the shape the material already has:
 
-Draw at least one **derived diagram** — something the prose states across several paragraphs that a picture states at once. Reach for the shape the material already has:
+- a **band** per section, for a document that arrives in sections
+- a **timeline**, for anything carrying dates, phases or sequence
+- a **swimlane**, for work split across people, teams or services
+- a **journey**, for something a person moves through step by step
+- a **map**, for a system's parts and the connections between them
+
+Mix them freely on one board where the material is mixed — a timeline of phases above a swimlane of who owns what, beside two bands of open questions. Number every top-level unit in one sequence whatever its type, so the board keeps a reading order that survives someone dragging a piece of it.
+
+Whatever the unit, the guarantee holds: every part of the source lands in one, compression happens inside a unit, and no unit is dropped. Compress as hard as the space demands — a ten-line paragraph becomes a three-line card.
+
+Draw at least one **derived diagram** — something the prose states across several paragraphs that a picture states at once. This one is not a division of the source but an addition to it, so reach for the shape the argument takes:
 
 - a **bind**, where several routes each dead-end and the point is that they exhaust the options
 - a **decision tree**, branching, with the condition written on each edge
 - a **pipeline**, stages with directional flow
 - a **before and after**, two states side by side
 - a **fork**, the option taken beside the option rejected
+- a **story map**, user activities across the top, detail hanging beneath each
+- an **impact and effort matrix**, for a field of options that needs ranking
+- a **dependency graph**, for what blocks what
+- a **stakeholder map**, for who cares about this and how much sway they hold
 
-Place any images the material already carries — screenshots, diagrams, recordings, mockups attached to the plan, the pull request, the issue, or shared earlier in this conversation. Put each one in the band it belongs to, sized to read at the zoom level the band is read at. Use what is in front of you and leave the user's attention alone.
+Place any images the material already carries — screenshots, diagrams, recordings, mockups attached to the plan, the pull request, the issue, or shared earlier in this conversation. Put each one in the unit it belongs to, sized to read at the zoom level the unit is read at. Use what is in front of you and leave the user's attention alone.
 
 Draw unknowns as unknowns. A question with three possible answers looks like a question with three possible answers: an explicit unknown marker, one branch per outcome, and the condition written on each edge. Where a human decision interrupts the flow, draw a gate — it says work stops here and waits for a person better than a sentence does.
 
-Carry a palette where colour means something and keeps meaning it across the whole board: one tone for blocked or rejected, one for kept or succeeded, one for works-but-costs, one for open questions, one neutral, and a distinct treatment for the conclusion so the eye lands there last. Where the destination already has a house convention, map these onto its colours instead.
+Carry a palette where colour means something and keeps meaning it across the whole board. For a decision or a diagnosis that means one tone for blocked or rejected, one for kept or succeeded, one for works-but-costs, one for open questions, and one neutral. For material that is not triage-shaped, colour along whatever axis it actually varies on — theme, team, phase, confidence — one axis, held across the board. Either way, give the conclusion a distinct treatment so the eye lands there last, and where the destination already has a house convention, map onto its colours instead.
 
 For **both**, put the plan on the left and the result on the right, in reading order on one page, named with ordinals so the sequence survives being zoomed out. A connector between them naming the event that turned one into the other earns its place when there is a clean event to name.
 
 ## Verify until it is clean
 
-Build one band per operation and check it before starting the next.
+Build one unit per operation and check it before starting the next.
 
 Checking means both halves. Query the bounds of every element and confirm that nothing overlaps a heading, nothing overlaps a neighbour, and no text has been clipped by its container. Then render the board as an image and look at it, because a structural check passes happily on something ugly.
 
