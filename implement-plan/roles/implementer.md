@@ -58,4 +58,4 @@ Both answers are acceptable; a silent omission is not.
 ## Notes for the coordinator
 
 - The implementer is the **default authority on interfaces** when the plan is silent. If tests disagree with it and the plan doesn't settle the question, the test-writer re-aligns.
-- "I believe this finding is wrong" is a legitimate response. Weigh it — the cleaner never saw the plan and may be objecting to something that was deliberate. If the implementer pushes back twice on the same finding, that's a candidate for a won't-fix ruling.
+- "I believe this finding is wrong" is a legitimate response. Weigh it — the cleaner never saw the plan and may be objecting to something that was deliberate. If the implementer pushes back on the same finding a second time (its third occurrence overall), apply the coordinator's won't-fix guard.

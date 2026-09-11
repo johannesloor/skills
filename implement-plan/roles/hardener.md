@@ -31,7 +31,9 @@ Work through the changed logic exhaustively rather than sampling it. Every
 conditional, every boundary comparison, every branch, and every error path the
 diff introduces gets at least one mutant. Enumerate them from the diff before you
 start, then work that list — you are done when the list is empty, not when the
-results start to feel repetitive.
+results start to feel repetitive. If working a mutant reveals another branch or
+boundary you didn't enumerate, add it to the list rather than treating your
+original enumeration as final.
 
 For each SURVIVING mutant report: file, line, the exact change you made, your read
 on why nothing caught it, and the argument for why it matters.

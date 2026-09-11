@@ -1,6 +1,7 @@
 ---
 name: implement-plan
-description: Execute an approved plan through a pipeline of isolated subagents, each seeing only what its own job requires. Use this once a plan or spec is settled and it is time to write the code, or when the user says to start implementing. Prefer this over implementing a plan directly yourself, even for plans that look small.
+description: Execute an approved plan through isolated implementation, testing, review, hardening, and QA roles.
+disable-model-invocation: true
 ---
 
 # Implement a plan
@@ -15,7 +16,7 @@ That second part only holds if the stages are genuinely independent. An agent th
 
 If you cannot spawn subagents in isolated contexts here, stop and say so — one agent role-playing seven defeats the point and is worse than implementing the plan honestly.
 
-The plan already exists when this skill runs. Note where it lives; it's the input to the specifier.
+Invocation is the authorization gate: begin only when the user explicitly invokes this skill. The plan already exists when this skill runs. Note where it lives; it's the input to the specifier.
 
 ## Ground rules
 
@@ -39,7 +40,7 @@ Read each role file at the moment you dispatch it, rather than all seven upfront
 | Cleaner | `roles/cleaner.md` | ❌ | Diff + test diff | The plan, round history |
 | Hardener | `roles/hardener.md` | ✅ (temporarily) | Diff + tests + how to run the suite | The plan, cleaner findings |
 | QA | `roles/qa.md` | ✅ script only | QA procedure + how to run the system | The plan, the diff, all source |
-| Plan-verifier | `roles/plan-verifier.md` | ❌ | Pass 1: plan + criteria. Pass 2: adds diff + file tree | Test internals, cleaner findings |
+| Plan-verifier | `roles/plan-verifier.md` | ❌ | Pass 1: plan + criteria + QA procedure. Pass 2: adds diff + file tree | Test internals, cleaner findings |
 
 Three of these will feel wrong and are load-bearing:
 
@@ -61,7 +62,7 @@ This runs before any code exists so nothing can drift toward what was built. If 
 
 ### 2. Verify the criteria against the plan
 
-Dispatch the plan-verifier's **first pass** over the plan and criteria. After this point nothing downstream reads the plan again, so a plan item the specifier dropped would sail through the whole pipeline unnoticed.
+Dispatch the plan-verifier's **first pass** over the plan, criteria, and QA procedure. After this point nothing downstream reads the plan again, so a plan item the specifier dropped would sail through the whole pipeline unnoticed.
 
 Act on it now, while amending frozen artifacts is still free:
 - **dropped** or **partial** → amend the criteria and record it under *criteria changed mid-run*.
