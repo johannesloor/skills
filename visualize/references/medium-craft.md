@@ -1,5 +1,11 @@
 Which canvas you are on changes what to build, not only how to build it. A board built for one medium and ported to the other lands noticeably worse, so read the section for the destination in front of you.
 
+## Probe before laying anything out
+
+Behaviour you have not seen is cheap to probe and expensive to guess. Create one element, measure what it does — grows with its content or clips it, where its origin sits, how text wraps — then delete it.
+
+Element types size themselves in opposite directions within the same tool: one grows with its content while another clips it and appends an ellipsis. Match the element type to the length of the content, short labels in constrained shapes and long prose in containers that grow. A growing element collides with whatever sits beneath it, so vertical positions computed from intended heights are wrong the moment content expands past them. Use real layout containers where the tool has them, and otherwise measure rendered heights and reposition afterwards.
+
 ## A precise design canvas
 
 Favours dense typographic cards, tight alignment, deliberate spacing and fixed frames. This is the medium for something that will be read closely, exported, or presented, where the reader consumes the board rather than touching it.
