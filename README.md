@@ -22,6 +22,14 @@ When what you point it at is a plan, one discipline kicks in: tense. A plan and 
 
 Overview beats detail, but nothing silently vanishes: the source is broken into numbered units — bands, timelines, swimlanes, journeys, maps, mixed freely as the material demands — and compressed by translating prose into shape rather than into shorter prose. A paragraph describing three stages and a dependency is three boxes and an arrow; the words that survive become labels. Size, position, proximity, connectors and colour all carry meaning, so a unit that still needs a paragraph to explain itself is a diagram not yet found. Each board also gets the diagrams the source could not draw — the bind, the fork, the story map, the impact matrix that prose spreads across several paragraphs and a picture states at once. Then it checks its own work: element bounds for overlaps and clipped text, a render to look at, and a squint at a zoom where the words are unreadable, because an argument that only survives in the text is one the board is not making.
 
+## create-repo-how-to
+
+Run in any repository, it writes a `repo-how-to` skill into it — a short overview plus one reference per coding area, in `.agents/skills/repo-how-to/` with a `.claude/skills` symlink — and adds one line to `AGENTS.md` or `CLAUDE.md` pointing agents at it.
+
+It doesn't summarise the code; an agent can already read the code. It learns from each area's last few substantive changes and the descriptions of the pull requests behind them, and caches only what exploring won't turn up: which way an area is moving and which patterns are legacy, which files change together, and the traps recent fixes exposed — each one cited to the commit or PR it came from.
+
+Every run is a full remake, never committed. The previous version is read only to keep wording that's still true, so a re-run shows up as a small `git diff` you review like any other change.
+
 ## Install
 
 ```bash

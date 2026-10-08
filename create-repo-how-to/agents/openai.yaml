@@ -1,0 +1,5 @@
+interface:
+  display_name: "Create Repo How-To"
+  short_description: "Generate a repo-how-to skill from a repo's recent changes"
+policy:
+  allow_implicit_invocation: false
