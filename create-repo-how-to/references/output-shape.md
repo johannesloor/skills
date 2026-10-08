@@ -32,10 +32,10 @@ File name: the area name, lowercase, hyphenated. Sections in this order; leave o
 
 - `## Current pattern`: the direction the area is moving, with one or two example file paths to copy from. Older patterns still in the code go under `Legacy (don't copy):`, each naming what replaced it.
 - `## Change together`: for each common kind of change, the set of files the recent diffs changed together.
-- `## Gotchas`: the why, the unwritten rule, the trap a fix exposed. Each one ends with its source: `(#PR)` or `(sha7)`.
+- `## Gotchas`: the why, the unwritten rule, the trap a fix exposed. Each one ends with its citation: `(#PR)` when the change has one, otherwise `(sha7)`.
 - `## Verify`: only when the command isn't obvious from the manifests.
 
-**Thin area:** fewer than 2 substantive changes. Write no file, or start the file with `> Thin: based on N change(s).`
+**Thin area:** fewer than `T` substantive changes (default 2). Write a short file, starting `> Thin: based on N change(s).`, only when those changes hold at least one load-bearing finding; otherwise write no file.
 
 ## Pointer line
 

@@ -27,7 +27,7 @@ Return Markdown with these sections:
 ## Areas
 For each area:
 - **<name>**: <one line on what kind of code lives there>
-  - Scope: <path globs>
+  - Scope: <git glob pathspecs: * stays in one folder, ** crosses folders>
   - Triggers: <the repo's own words for the work done there, most common first>
 
 ## Not an area

@@ -28,7 +28,7 @@ Dispatch one subagent with the brief in `roles/explorer.md`. Done when the area 
 
 ## 2. Write the areas
 
-Dispatch one subagent per area, **in parallel**, with the brief in `roles/area-writer.md`. Before dispatching, check the GitHub rate limit when there's no authenticated `gh` (`curl -s https://api.github.com/rate_limit`); if `remaining` is below `areas × N`, tell the writers which areas fall back to commit messages. Done when every area has returned a reference or been reported thin with no file.
+Dispatch one subagent per area, **in parallel**, with the brief in `roles/area-writer.md`. Done when every area has returned a reference or been reported thin with no file.
 
 ## 3. Write the overview
 
@@ -61,9 +61,6 @@ The tree is the deliverable; leave it uncommitted. Report:
 ```
 ## Areas
 <area — reference | thin, no file | thin, short file>
-
-## PR descriptions
-<used for N of M changes | unavailable: reason, fell back to commit messages>
 
 ## Changed files
 <git status --short>
