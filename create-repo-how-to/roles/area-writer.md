@@ -10,7 +10,7 @@ reference holds only what exploration can't find.
 
 Area: <name>. Scope: <globs>. Triggers: <words>.
 Default branch: <branch>. GitHub: <owner/repo or none>.
-Changes to read: <N, default 5>. Thin below: <T, default 2>.
+Changes to read: <N, default 10>. Thin below: <T, default 2>.
 Already in agent files (leave these out): <list>
 Existing reference: <its content, or "none">
 Output shape: read <path to references/output-shape.md>, section "Reference".
@@ -35,6 +35,9 @@ folders. Pass each one prefixed with `:(glob)`, written below as <pathspecs>.
    squash and merge commits:
    - `git diff <sha>^ <sha> -- <pathspecs>` for the code;
    - `git diff --stat <sha>^ <sha>` for what changed outside the scope alongside it.
+   When `git diff --shortstat <sha>^ <sha> -- <pathspecs>` shows more than 1,500
+   changed lines (a mass rename, a migration, a vendored drop), read only the
+   stat and the why for that change: its full diff would crowd out the others.
 
 4. Read the why. Start with the commit message: `git log -1 --format=%B <sha>`.
    When its body says why the change was made, that is the source. A subject that

@@ -2,7 +2,7 @@
 name: create-repo-how-to
 description: Generate a repo-how-to skill that teaches agents how this repo's code is written now, from its recent changes.
 disable-model-invocation: true
-argument-hint: "[changes per area, default 5]"
+argument-hint: "[changes per area, default 10]"
 ---
 
 # Create a repo how-to
@@ -11,7 +11,7 @@ You are the **coordinator**. Three stages run across real context boundaries: an
 
 Every run is a full remake. The existing how-to is input only, read to keep wording that is still correct so the developer's diff stays small. You never commit; review and merge are the developer's.
 
-Inputs: `N` changes per area (the argument, default 5) and the thin threshold `T` (default 2; the user may override it in the invocation).
+Inputs: `N` changes per area (the argument, default 10) and the thin threshold `T` (default 2; the user may override it in the invocation).
 
 ## 0. Load the writing rules
 
