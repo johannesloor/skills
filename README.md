@@ -30,6 +30,20 @@ It doesn't summarise the code; an agent can already read the code. It learns fro
 
 Every run is a full remake, never committed. The previous version is read only to keep wording that's still true, so a re-run shows up as a small `git diff` you review like any other change.
 
+## review-against-git
+
+After an agent implements a change, and before it builds, tests or shows you anything, a fresh subagent reviews the diff against the git history of the code it touches. It finds what conflicts with how the team builds things, and the agent fixes it, so the first code you review has already been held up against the team's own past decisions.
+
+It reads history at review time, for the lines actually changed, rather than from a cached "how we code" document. A cached document goes stale (a fix gets reverted, a rule narrows to one platform) and turns a single PR into a rule. Reading at review time sees HEAD as it is and only the history that bears on the diff. Two histories are read for each changed file. The changed lines' own history shows which past decisions not to undo. The newest files with the same role (same interface, base class or type suffix in the same layer, whichever folder they sit in) show how that kind of code is written now. Each commit is read only as deep as needed: commit message, then PR description, then review comments. The repo's own convention docs and skills count as evidence too.
+
+A finding needs evidence: a stated reason ("we do X because…") in a commit, PR or human review comment, or two or more independent changes doing the same thing. The pattern must also still hold at HEAD. One unexplained commit is never enough, because a false finding costs more than a missed one. When history disagrees with something you explicitly asked for, you win, and the conflict is reported with its evidence. Without GitHub it falls back to commit messages and repo docs, and says so.
+
+It is model-invoked, but the most reliable trigger is a line in each repo's `AGENTS.md` or `CLAUDE.md`:
+
+```
+Before presenting code changes, run the review-against-git skill.
+```
+
 ## Install
 
 ```bash

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Review Against Git"
+  short_description: "Check a code change against the repo's commit and PR history, and fix what conflicts"
+policy:
+  allow_implicit_invocation: true
