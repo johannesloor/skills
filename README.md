@@ -44,6 +44,14 @@ It is model-invoked, but the most reliable trigger is a line in each repo's `AGE
 Before presenting code changes, run the review-against-git skill.
 ```
 
+## muscle-memory
+
+Every deterministic task an agent does (computing, converting, counting, checking, editing a file or a calendar) has one right answer every run. Yet agents re-derive these tasks in prose each time, spending tokens and taking a fresh chance at a fresh mistake. This skill turns them into muscle memory: the agent first looks in a library of its own scripts and runs the one that fits. If none fits, it does the task by writing a small tested script, so the next run is a lookup instead of reasoning.
+
+The library is a git repo at `~/muscle-memory/` with an `INDEX.md`, one line per script, complete enough to call the script without opening it. The agent reads that index, not the code, so a growing library costs almost no context. Each script ships with a test holding at least one expected value worked out by hand, not output copied back from the code. Scripts that change things support `--dry-run` and read back what they changed. Irreversible ones (send, buy, delete) always dry-run first and wait for your yes.
+
+Judgment stays with the model; the scripts carry the mechanics. It is the skill-sized version of the pattern Anthropic describes in [Code execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp) and research like [Voyager](https://voyager.minedojo.org/), with no server to run. The safety rules are guidance the agent follows, not a gate enforced in code. Scripts use Python's standard library; secrets come from the macOS Keychain.
+
 ## Install
 
 ```bash

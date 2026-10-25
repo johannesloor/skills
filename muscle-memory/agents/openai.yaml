@@ -1,0 +1,5 @@
+interface:
+  display_name: "Muscle Memory"
+  short_description: "Run or write a tested script for any deterministic task"
+policy:
+  allow_implicit_invocation: true
