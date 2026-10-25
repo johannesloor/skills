@@ -5,7 +5,7 @@ description: Use for deterministic tasks. Run or write a tested script.
 
 # Muscle memory
 
-Your library of tested scripts lives at `$MUSCLE_MEMORY_DIR`, or `~/.muscle-memory/` when that is unset. It is a git repo whose `INDEX.md` opens with the library's language, its run command (which also appends `<date> <script>` to a git-ignored `uses.log`) and one test command that runs every test, both working from any directory, then lists one script per line under one `##` heading per area. With no library yet, create it in a language the environment already runs, and ask the user whether it stays local or pushes to a remote (suggest private); record the answer as `Remote:` in the header. If you can schedule jobs, also ask whether to add a monthly one that, through the run command, removes scripts with no `uses.log` entry in 3 months; record it as `Pruning:`.
+Your library of tested scripts lives at `$MUSCLE_MEMORY_DIR`, or `~/.muscle-memory/` when that is unset. It is a git repo whose `INDEX.md` opens with the library's language, its run command and one test command that runs every test, both working from any directory, then lists one script per line under one `##` heading per area. With no library yet, create it in a language the environment already runs, and ask the user whether it stays local or pushes to a remote (suggest private); record the answer as `Remote:` in the header.
 
 1. **Look.** Read the `##` headings in `INDEX.md`, then the lines under the area that fits. Done when you hold a matching script or know none fits.
 2. **Run.** Run the script with the library's run command; its output is the answer. Done when it exits cleanly and its output answers the task; otherwise repair the script and its test, then rerun.
