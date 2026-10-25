@@ -1,11 +1,13 @@
 ---
 name: muscle-memory
-description: Use for deterministic tasks. Run or write a tested script.
+description: Use before computing, parsing or converting by hand, or writing a snippet twice. Run or write a tested script.
 ---
 
 # Muscle memory
 
 Your library of tested scripts lives at `$MUSCLE_MEMORY_DIR`, or `~/.muscle-memory/` when that is unset. It is a git repo whose `INDEX.md` opens with the library's language, its run command and one test command that runs every test, both working from any directory, then lists one script per line under one `##` heading per area. With no library yet, create it in a language the environment already runs, and ask the user whether it stays local or pushes to a remote (suggest private); if a remote, add it with `git remote add`.
+
+Check at each sub-step of a larger task, not only at its start.
 
 1. **Look.** Read the `##` headings in `INDEX.md`, then the lines under the area that fits. Done when you hold a matching script or know none fits.
 2. **Run.** Run the script with the library's run command. Done when it exits cleanly; its output goes to the user as the answer. On an error, repair the script and its test, then rerun.
