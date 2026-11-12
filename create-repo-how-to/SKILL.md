@@ -32,7 +32,7 @@ Dispatch one subagent per area, **in parallel**, with the brief in `roles/area-w
 
 ## 3. Write the overview
 
-Build `.agents/skills/repo-how-to/SKILL.md` in the shape from `references/output-shape.md`. A rule reported as repo-wide by two or more areas moves up into Repo-wide rules and leaves those references — and passes the cache test: a rule already visible in the files it governs stays out, however repo-wide it is. Start from the existing overview: lines still true keep their exact wording and order. Done when every area with a reference has an index line and the description matches the shape's exact wording.
+Build `.agents/skills/repo-how-to/SKILL.md` in the shape from `references/output-shape.md`. Start from the existing overview: lines still true keep their exact wording and order. Done when every area with a reference has an index line and the description matches the shape's exact wording.
 
 ## 4. Remake the files
 

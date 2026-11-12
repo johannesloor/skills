@@ -61,8 +61,7 @@ folders. Pass each one prefixed with `:(glob)`, written below as <pathspecs>.
 6. Return:
    - the reference content, or "thin: no file" with the count;
    - a note listing each change used (sha7, #PR or none, date) and each change
-     dismissed with its reason;
-   - any rule that looks true of the whole repo, not just this area.
+     dismissed with its reason.
 
 Done when every kept change has been read, its why looked for as step 4 says,
 and is either reflected in the reference or dismissed in the note, and every
