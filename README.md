@@ -18,7 +18,7 @@ Run in any repository, it writes a `repo-how-to` skill into it — a short overv
 
 It doesn't summarise the code; an agent can already read the code. It learns from each area's last few substantive changes and why they were made, and caches only what exploring won't turn up: which way an area is moving and which patterns are legacy, which files change together, and the traps recent fixes exposed — each one cited to the commit or PR it came from.
 
-Every run is a full remake, never committed. The previous version is read only to keep wording that's still true, so a re-run shows up as a small `git diff` you review like any other change.
+Every run is a full remake. The previous version is read only to keep wording that's still true, so a re-run shows up as a small `git diff` you review like any other change.
 
 ## review-against-git
 

@@ -9,7 +9,7 @@ argument-hint: "[changes per area, default 10]"
 
 You are the **coordinator**. Three stages run across real context boundaries: an explorer maps the areas, one area-writer per area reads that area's recent changes, you assemble. What the output looks like and what it caches are defined in `references/output-shape.md`; the stages' briefs are in `roles/`. If you can't dispatch subagents in isolated contexts here, stop and say so.
 
-Every run is a full remake. The existing how-to is input only, read to keep wording that is still correct so the developer's diff stays small. You never commit; review and merge are the developer's.
+Every run is a full remake. The existing how-to is input only, read to keep wording that is still correct so the developer's diff stays small.
 
 Inputs: `N` changes per area (the argument, default 10) and the thin threshold `T` (default 2; the user may override it in the invocation).
 
@@ -54,9 +54,9 @@ Add the pointer line from `references/output-shape.md`, following the explorer's
 
 Do a `writing-for-agents` pass over the overview and every reference: cut no-ops, duplicates, caches of what the environment already says, and anything from the README or agent files. Done when every remaining line answers "what does this give an agent that exploring won't?"
 
-## 8. Report and stop
+## 8. Report
 
-The tree is the deliverable; leave it uncommitted. Report:
+Report:
 
 ```
 ## Areas
