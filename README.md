@@ -2,16 +2,6 @@
 
 Agent skills.
 
-## implement-plan
-
-Executes an approved plan through a pipeline of isolated subagents — specifier, implementer, test-writer, cleaner, hardener, QA, and plan-verifier — each seeing only what its own job requires, all communicating through a coordinator.
-
-The point isn't to skip review — it's to make review worth your time. What reaches you has already survived every mechanical objection, so your attention goes to design and judgement rather than to catching things a machine could have caught. Every stage exits on a fact rather than an opinion: the suite is green, the cleaner is silent, every mutant is killed or argued for, the QA steps passed against the running system.
-
-And no agent is ever in a position to grade its own work — the specifier freezes acceptance criteria before any code exists, the test-writer never sees the implementation, the cleaner never sees the plan, and the QA agent never sees any source at all.
-
-Inspired by the agent pipeline Robert C. Martin describes in [his conversation with Matt Pocock](https://www.youtube.com/live/zcLPGC-tvgk) — the specifier, cleaner, and hardener roles are his.
-
 ## visualize
 
 Puts whatever a team needs to look at together — a plan, a shipped implementation, a roadmap, an architecture, a retrospective — onto a shared canvas, whiteboard or design file, for them to stand in front of and argue with.
@@ -44,12 +34,6 @@ It is model-invoked, but the most reliable trigger is a line in each repo's `AGE
 Before presenting code changes, run the review-against-git skill.
 ```
 
-## muscle-memory
-
-Agents re-derive deterministic tasks (calculations, conversions, checks, file and calendar edits) in prose every time, paying tokens for a fresh chance at a fresh mistake. This skill turns them into muscle memory: the agent keeps a git library of small tested scripts, looks there first, and trusts what the script returns. When nothing fits, you get the answer as usual, and if that kind of task is likely to come up again, the agent writes a script for it afterwards.
-
-Scripts that change things dry-run first, and irreversible ones wait for your yes. The library lives in `~/.muscle-memory/` (or `$MUSCLE_MEMORY_DIR`), in whatever language the machine already runs.
-
 ## Install
 
 ```bash
@@ -59,5 +43,5 @@ npx skills add johannesloor/skills
 Or pick the agent and scope explicitly:
 
 ```bash
-npx skills add johannesloor/skills --skill implement-plan -g -a claude-code
+npx skills add johannesloor/skills --skill visualize -g -a claude-code
 ```

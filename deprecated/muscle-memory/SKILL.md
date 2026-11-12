@@ -1,7 +1,11 @@
 ---
 name: muscle-memory
 description: Use when starting any tool task. Script repeatable steps.
+metadata:
+  internal: true
 ---
+
+> **Deprecated.** This skill is no longer maintained. Use the [Muscle Memory MCP server](https://github.com/johannesloor/muscle-memory) instead.
 
 # Muscle memory
 

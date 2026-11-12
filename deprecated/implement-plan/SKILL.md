@@ -2,7 +2,11 @@
 name: implement-plan
 description: Execute an approved plan through isolated implementation, testing, review, hardening, and QA roles.
 disable-model-invocation: true
+metadata:
+  internal: true
 ---
+
+> **Deprecated.** This skill is no longer maintained. Use [Matt Pocock's skills](https://github.com/mattpocock/skills) instead — e.g. `to-spec`, `to-tickets`, `implement` and `tdd`.
 
 # Implement a plan
 
