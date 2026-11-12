@@ -8,9 +8,9 @@ teaches a coding agent how code in this area is written *now*, learned from the
 area's recent changes. The agent reading it can already explore the code, so the
 reference holds only what exploration can't find.
 
-Area: <name>. Scope: <globs>. Triggers: <words>.
+Area: <name>. Scope: <globs>.
 Default branch: <branch>. GitHub: <owner/repo or none>.
-Changes to read: <N, default 10>. Thin below: <T, default 2>.
+Changes to read: <last N, default 10 | since <sha>>. Thin below: <T, default 2>.
 Already in agent files (leave these out): <list>
 Existing reference: <its content, or "none">
 Output shape: read <path to references/output-shape.md>, section "Reference".
@@ -18,18 +18,21 @@ Output shape: read <path to references/output-shape.md>, section "Reference".
 Scope globs are git glob pathspecs: `*` stays inside one folder, `**` crosses
 folders. Pass each one prefixed with `:(glob)`, written below as <pathspecs>.
 
-1. Find changes, newest first:
+1. Find changes, newest first; with `since <sha>`, use the range `<sha>..<branch>`
+   in place of `<branch>`:
    git log --first-parent --format='%H%x09%ad%x09%s' --date=short <branch> -- <pathspecs>
 
-2. Keep the first N substantive changes. A change is non-substantive when:
+2. With last N, keep the first N substantive changes; with `since <sha>`, keep
+   every substantive change in the range. A change is non-substantive when:
    - every file it touches is a lockfile, generated, vendored, a changelog or a
      version file;
    - its subject is a release or version bump: matches ^v?\d+\.\d+\.\d+, or says
      release, bump, chore(release), or is a "Merge ... into ..." back-merge;
    - it is formatting only: the subject says fmt, lint or format, or
      `git diff -w --stat <sha>^ <sha> -- <pathspecs>` shows no change left.
-   Fewer than T substantive changes makes the area thin: follow the thin rule in
-   the output shape.
+   With last N, fewer than T substantive changes makes the area thin: follow the
+   thin rule in the output shape. With `since <sha>`, there is no thin rule: zero
+   substantive changes returns `unchanged`, with no reference.
 
 3. Read each kept change against its first parent, which works the same for
    squash and merge commits:
@@ -59,7 +62,7 @@ folders. Pass each one prefixed with `:(glob)`, written below as <pathspecs>.
    over — rather than another example of a pattern already recorded.
 
 6. Return:
-   - the reference content, or "thin: no file" with the count;
+   - the reference content, "thin: no file" with the count, or `unchanged`;
    - a note listing each change used (sha7, #PR or none, date) and each change
      dismissed with its reason.
 
@@ -68,4 +71,4 @@ and is either reflected in the reference or dismissed in the note, and every
 gotcha ends with a (#PR) or (sha7) citation.
 ```
 
-Writing rules: append the coordinator's `writing-for-agents` lookup rule to the brief.
+Writing rules: append the path to `writing-for-agents` to the brief.

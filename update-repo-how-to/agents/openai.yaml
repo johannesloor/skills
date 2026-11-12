@@ -1,0 +1,5 @@
+interface:
+  display_name: "Update Repo How-To"
+  short_description: "Refresh a repo-how-to skill from changes since its last run"
+policy:
+  allow_implicit_invocation: false

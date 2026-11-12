@@ -1,44 +1,30 @@
 ---
 name: create-repo-how-to
-description: Generate a repo-how-to skill that teaches agents how this repo's code is written now, from its recent changes.
+description: Set up a repo-how-to skill in this repo, point agents at it, and offer a weekly update.
 disable-model-invocation: true
 argument-hint: "[changes per area, default 10]"
 ---
 
 # Create a repo how-to
 
-You are the **coordinator**. Three stages run across real context boundaries: an explorer maps the areas, one area-writer per area reads that area's recent changes, you assemble. What the output looks like and what it caches are defined in `references/output-shape.md`; the stages' briefs are in `roles/`. If you can't dispatch subagents in isolated contexts here, stop and say so.
+One-time setup. `update-repo-how-to` builds and refreshes the how-to; this skill installs it in the repo, runs it once, wires the result into the repo, and offers to schedule it.
 
-Every run is a full remake. The existing how-to is input only, read to keep wording that is still correct so the developer's diff stays small.
+## 0. Install the skills
 
-Inputs: `N` changes per area (the argument, default 10) and the thin threshold `T` (default 2; the user may override it in the invocation).
+Install `update-repo-how-to` and the `writing-for-agents` it writes by, at project level, so a scheduled job finds them in the checkout:
 
-## 0. Load the writing rules
+```bash
+npx skills add johannesloor/skills --skill update-repo-how-to -y
+npx skills add mattpocock/skills --skill writing-for-agents -y
+```
 
-Every agent in this run writes by `writing-for-agents`. If it is installed (`~/.claude/skills`, `~/.agents/skills`, or this repo's skill folders), read it there. Otherwise read the live files without saving them to disk:
+Done when this repo's skill folders hold `update-repo-how-to/SKILL.md` and `writing-for-agents/SKILL.md`, and you have read update's; if an install fails, stop and say so.
 
-- `https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/writing-for-agents/SKILL.md`
-- `https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/writing-for-agents/SKILL-MECHANICS.md`
+## 1. Build the how-to
 
-Pass this same lookup rule to every subagent. Done when you have read it; if neither source is reachable, stop and say so.
+Follow `update-repo-how-to` as its coordinator, as a **full remake**, passing on `N` and `T` from this invocation. Done when its report is ready.
 
-## 1. Explore
-
-Dispatch one subagent with the brief in `roles/explorer.md`. Done when the area map is back and meets the explorer's completion criterion.
-
-## 2. Write the areas
-
-Dispatch one subagent per area, **in parallel**, with the brief in `roles/area-writer.md`. Done when every area has returned a reference or been reported thin with no file.
-
-## 3. Write the overview
-
-Build `.agents/skills/repo-how-to/SKILL.md` in the shape from `references/output-shape.md`. Start from the existing overview: lines still true keep their exact wording and order. Done when every area with a reference has an index line and the description matches the shape's exact wording.
-
-## 4. Remake the files
-
-Write every reference to `.agents/skills/repo-how-to/references/`. Delete any `references/*.md` whose area is gone or now thin with no file. Done when the folder holds exactly the overview and the references the index names.
-
-## 5. Symlink
+## 2. Symlink
 
 ```bash
 mkdir -p .claude/skills && ln -sfn ../../.agents/skills/repo-how-to .claude/skills/repo-how-to
@@ -46,22 +32,27 @@ mkdir -p .claude/skills && ln -sfn ../../.agents/skills/repo-how-to .claude/skil
 
 Done when `ls .claude/skills/repo-how-to/` lists the overview.
 
-## 6. Pointer line
+## 3. Pointer line
 
-Add the pointer line from `references/output-shape.md`, following the explorer's `Agent file layout`: when one agent file imports or symlinks the other, only the real file gets it; otherwise each existing file does; when neither exists, create `AGENTS.md`. A line already mentioning `repo-how-to skill` is replaced in place. Done when `grep -c 'repo-how-to skill' <file>` returns 1 for each target file.
+Add this line, exactly:
 
-## 7. Prune
+`For how to write code in a specific area of this repo, use the repo-how-to skill (.agents/skills/repo-how-to/).`
 
-Do a `writing-for-agents` pass over the overview and every reference: cut no-ops, duplicates, caches of what the environment already says, and anything from the README or agent files. Done when every remaining line answers "what does this give an agent that exploring won't?"
+Follow the `Agent file layout` from step 1's area map: when one agent file imports or symlinks the other, only the real file gets it; otherwise each existing file does; when neither exists, create `AGENTS.md`. A line already mentioning `repo-how-to skill` is replaced in place. Done when `grep -c 'repo-how-to skill' <file>` returns 1 for each target file.
 
-## 8. Report
+## 4. Report
 
-Report:
+Print update's report, with the installed skills, symlink and pointer-line files included in `## Changed files`.
 
-```
-## Areas
-<area — reference | thin, no file | thin, short file>
+## 5. Offer a weekly update
 
-## Changed files
-<git status --short>
-```
+Skip this step when a job already runs `update-repo-how-to` for this repo.
+
+Ask the user whether to set up a weekly update. If yes, ask how they want it scheduled on their system, offering what fits the system. Set up the one they pick. The job runs `update-repo-how-to`, and its prompt carries what an unattended run needs:
+
+- `N` and `T`, when they differ from the defaults;
+- the default branch, with full history checked out;
+- how area-writers read PR descriptions there when `gh` has no access;
+- what to do with the changes: open a pull request or leave them in the tree, as the user chooses.
+
+Done when the job exists and you have given the user the command that triggers it by hand, or the user declined.

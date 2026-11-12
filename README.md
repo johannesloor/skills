@@ -14,11 +14,13 @@ Overview beats detail, but nothing silently vanishes: the source is broken into 
 
 ## create-repo-how-to
 
-Run in any repository, it writes a `repo-how-to` skill into it — a short overview plus one reference per coding area, in `.agents/skills/repo-how-to/` with a `.claude/skills` symlink — and adds one line to `AGENTS.md` or `CLAUDE.md` pointing agents at it.
+Run once in any repository: it installs `update-repo-how-to` and `writing-for-agents` into the repo and builds a `repo-how-to` skill with it — a short overview plus one reference per coding area, in `.agents/skills/repo-how-to/` — adds a `.claude/skills` symlink and one line to `AGENTS.md` or `CLAUDE.md` pointing agents at it, and offers to schedule a weekly update.
 
-It doesn't summarise the code; an agent can already read the code. It learns from each area's last few substantive changes and why they were made, and caches only what exploring won't turn up: which way an area is moving and which patterns are legacy, which files change together, and the traps recent fixes exposed — each one cited to the commit or PR it came from.
+## update-repo-how-to
 
-Every run is a full remake. The previous version is read only to keep wording that's still true, so a re-run shows up as a small `git diff` you review like any other change.
+Builds and refreshes the `repo-how-to` skill. It doesn't summarise the code; an agent can already read the code. It learns from each area's substantive changes and why they were made, and caches only what exploring won't turn up: which way an area is moving and which patterns are legacy, which files change together, and the traps recent fixes exposed — each one cited to the commit or PR it came from.
+
+Each run re-maps the areas, then reads only what changed in each one since the last run (the first run reads each area's last few changes). The previous version is input, kept wherever it's still true, so a run shows up as a small `git diff` you review like any other change. It's what the weekly job runs.
 
 ## review-against-git
 

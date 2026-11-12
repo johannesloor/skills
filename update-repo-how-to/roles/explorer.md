@@ -48,4 +48,4 @@ Done when every top-level source directory and every workspace package belongs t
 exactly one area or is listed under "Not an area" with its reason.
 ```
 
-Writing rules: append the coordinator's `writing-for-agents` lookup rule to the brief.
+Writing rules: append the path to `writing-for-agents` to the brief.

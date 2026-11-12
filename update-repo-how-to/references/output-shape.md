@@ -1,6 +1,6 @@
 # Output shape
 
-What `create-repo-how-to` writes into the target repo. Everything lives under `.agents/skills/repo-how-to/`.
+What `update-repo-how-to` writes into the target repo. Everything lives under `.agents/skills/repo-how-to/`.
 
 Every line is a **cache**: it holds only what an agent can't find by reading the code, the manifests, the README or the agent files. Point to paths; never paste code.
 
@@ -11,13 +11,15 @@ Every line is a **cache**: it holds only what an agent can't find by reading the
 name: repo-how-to
 description: How to write code in <repo>, area by area. Use before writing or changing code in <repo>.
 ---
+<!-- read-through: <sha> -->
 
 ## Areas
-- **<area>** (`<scope globs>`): <when to read it>. See [references/<area>.md](references/<area>.md)
+- **<area>** (`<scope globs>`): <when to read it, in the explorer's trigger words>. See [references/<area>.md](references/<area>.md)
 ```
 
 - 50 lines at most.
 - The description is exactly the line above, with only `<repo>` filled in. Areas route through the index, not the description.
+- The read-through line holds the default-branch commit the run read up to.
 - Scope lives only in the index line, so references don't repeat it.
 - Leave out setup, architecture and orientation prose. Leave out anything the README or `AGENTS.md`/`CLAUDE.md` already says; point to it only when an area depends on it.
 - A thin area with no reference gets no index line.
@@ -32,9 +34,3 @@ File name: the area name, lowercase, hyphenated. Sections in this order; leave o
 - `## Verify`: only when the command isn't obvious from the manifests.
 
 **Thin area:** fewer than `T` substantive changes (default 2). Write a short file, starting `> Thin: based on N change(s).`, only when those changes hold at least one load-bearing finding; otherwise write no file.
-
-## Pointer line
-
-One line in the agent file, exactly:
-
-`For how to write code in a specific area of this repo, use the repo-how-to skill (.agents/skills/repo-how-to/).`
