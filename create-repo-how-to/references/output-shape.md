@@ -9,7 +9,7 @@ Every line is a **cache**: it holds only what an agent can't find by reading the
 ```markdown
 ---
 name: repo-how-to
-description: How to write code in <repo>. Use when <one trigger per area, in the repo's own words>.
+description: How to write code in <repo>, area by area. Use before writing or changing code in <repo>.
 ---
 
 ## Repo-wide rules
@@ -20,10 +20,10 @@ description: How to write code in <repo>. Use when <one trigger per area, in the
 ```
 
 - 50 lines at most.
-- One trigger per area in the description. Collapse synonyms into one.
+- The description is exactly the line above, with only `<repo>` filled in. Areas route through the index, not the description.
 - Scope lives only in the index line, so references don't repeat it.
 - Leave out setup, architecture and orientation prose. Leave out anything the README or `AGENTS.md`/`CLAUDE.md` already says; point to it only when an area depends on it.
-- A thin area with no reference gets no index line and no trigger.
+- A thin area with no reference gets no index line.
 - Leave out `## Repo-wide rules` when there are none.
 
 ## Reference: `references/<area>.md`
